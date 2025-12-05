@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook Clone - Full Stack</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay">
+        <div class="spinner"></div>
+    </div>
+    
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <span id="toastMessage"></span>
+    </div>
+    
+    <!-- Register Modal -->
+    <div class="modal" id="registerModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Create Account</h2>
+                <button class="close-modal" onclick="hideModal('registerModal')">&times;</button>
+            </div>
+            
+            <form id="registerForm">
+                <div class="profile-upload">
+                    <div class="profile-preview">
+                        <img id="avatarPreview" src="https://i.pravatar.cc/150" alt="Avatar Preview">
+                    </div>
+                    <label class="upload-btn">
+                        <i class="fas fa-camera"></i> Choose Profile Picture
+                        <input type="file" id="avatarInput" accept="image/*" style="display: none;" onchange="previewAvatar(event)">
+                    </label>
+                </div>
+                
+                <input type="text" id="regName" placeholder="Full Name" required>
+                <input type="email" id="regEmail" placeholder="Email" required>
+                <input type="password" id="regPassword" placeholder="Password" required>
+                <input type="date" id="regBirthday" required>
+                <small>You must be at least 13 years old</small>
+                
+                <button type="submit" class="btn-primary">Create Account</button>
+                <button type="button" class="btn-text" onclick="hideModal('registerModal'); showAuth('login')">
+                    Already have an account?
+                </button>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Rest of your HTML from previous version -->
+    <!-- Include all the HTML structure from the previous single-file version -->
+    <!-- Make sure to update form IDs and add necessary data attributes -->
+    
+    <!-- Add these buttons to your navbar -->
+    <button onclick="showModal('registerModal')" class="btn-secondary" style="margin-left: 10px;">
+        <i class="fas fa-user-plus"></i> Create Account
+    </button>
+    
+    <!-- Add this to your login page -->
+    <button onclick="showModal('registerModal')" class="btn-secondary" style="width: 100%; margin-top: 15px;">
+        Create New Account
+    </button>
+    
+    <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
